@@ -87,7 +87,7 @@ def scrape_cars(url, sheet):
             # Extract the phone number from the vehicle detail page
             try:
                 phone_element = vehicle_soup.find('a', id='mobile-call-button')
-                phone = phone_element['href'][4:]  # Extract the phone number from the href attribute
+                phone = phone_element['href'][4:]if phone_element else 'N/A'  # Extract the phone number from the href attribute
             except AttributeError:
                 phone = 'N/A'
             
